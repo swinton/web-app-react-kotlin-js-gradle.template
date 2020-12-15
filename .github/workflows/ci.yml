@@ -30,6 +30,7 @@ jobs:
           java-version: 1.8
 
       - name: Detekt
+        continue-on-error: true
         run: |
           java \
             -jar detekt/detekt-cli-1.15.0-RC2-all.jar \
