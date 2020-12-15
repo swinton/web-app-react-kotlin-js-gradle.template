@@ -37,7 +37,13 @@ jobs:
             --plugins detekt/detekt-report-sarif-1.15.0-RC2.jar \
             --input . --report sarif:detekt.sarif.json
 
-      # Uploads results.sarif to GitHub repository using the upload-sarif action
+      - name: Expose SARIF
+        uses: actions/upload-artifact@v2
+        with:
+          name: SARIF
+          path: detekt.sarif.json
+
+        # Uploads results.sarif to GitHub repository using the upload-sarif action
       - uses: github/codeql-action/upload-sarif@v1
         with:
           # Path to SARIF file relative to the root of the repository
