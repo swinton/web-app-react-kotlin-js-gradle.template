@@ -37,6 +37,12 @@ jobs:
             --plugins detekt/detekt-report-sarif-1.15.0-RC2.jar \
             --input . --report sarif:detekt.sarif.json
 
+      - name: Debug
+        continue-on-error: true
+        run: |
+          echo github.workspace is "${{ github.workspace }}"
+          ls ${{ github.workspace }}/detekt.sarif.json
+
       - name: Expose SARIF
         uses: actions/upload-artifact@v2
         with:
@@ -48,4 +54,4 @@ jobs:
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: detekt.sarif.json
-          checkout_path: .
+          checkout_path: ${{ github.workspace }}
