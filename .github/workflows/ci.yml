@@ -37,6 +37,7 @@ jobs:
       #       --plugins detekt/detekt-report-sarif-1.15.0-RC2.jar \
       #       --input . --report sarif:detekt.sarif.json
       - name: Detekt
+        continue-on-error: true
         uses: swinton/action-detekt-all@master
         with:
           args: --input .
