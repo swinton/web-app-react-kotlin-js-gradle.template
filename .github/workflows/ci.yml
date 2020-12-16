@@ -40,7 +40,7 @@ jobs:
         continue-on-error: true
         uses: swinton/action-detekt-all@master
         with:
-          args: --input .
+          args: --plugins /usr/local/lib/detekt/detekt-cli-all.jar --input . --report sarif:detekt.sarif.json
 
       - name: Debug
         continue-on-error: true
