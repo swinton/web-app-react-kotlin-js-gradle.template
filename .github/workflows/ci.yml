@@ -38,7 +38,7 @@ jobs:
       #       --input . --report sarif:detekt.sarif.json
       - name: Detekt
         continue-on-error: true
-        uses: swinton/action-detekt-all@master
+        uses: natiginfo/action-detekt-all@1.15.0-RC2
         with:
           args: --input . --report sarif:detekt.sarif.json
 
